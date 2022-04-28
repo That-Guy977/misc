@@ -13,4 +13,4 @@
 - [Java - Brainfuck interpreter](/java/brainfuck-interpreter/)
 
 ##### [Whitespace](/ws/) [(wiki)](https://en.wikipedia.org/wiki/Whitespace_(programming_language))
-- [Java polyglot](/ws/whitespace-polyglot/)
+- [Java polyglot](/ws/java-polyglot/)
