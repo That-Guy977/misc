@@ -8,15 +8,15 @@ class HelloWorld {
  	static {     
 
  	MESSAGE.addAll(List.of(
-      	"\n", 	 
-    	"!",    	
+      	 	"\n", 
+    	    	"!",
    		"d",  	  
    		"l", 		  
    		"r",	  	 
    		"o", 				
    		"w",	 			
     	" ",    
-    	",", 		  
+    	 	",",	  
    		"o", 				
    		"l", 		  
    		"l", 		  
@@ -39,13 +39,13 @@ class HelloWorld {
 
 
   static void print()	{
-	System
-   .out.print(
+	System.out.
+   print(
  
 	String.join("", MESSAGE)
 
  );
-  	}
+  }	
 }
         
 
