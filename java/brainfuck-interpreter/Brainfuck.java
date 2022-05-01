@@ -1,22 +1,22 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.io.InputStream;
 
-import java.util.NoSuchElementException;
-
 public class Brainfuck {
-    private final byte[] memory = new byte[256];
     private final String code;
+    private final List<Byte> memory = new ArrayList<>();
+    private int pointer = 0;
     private final Loops loops = new Loops();
-    private byte pointer = 0;
+
+    {
+        memory.add((byte) 0);
+    }
 
     private class Loops {
-        private final ArrayList<Integer> opens, closes;
-
-        private Loops() {
-            opens = new ArrayList<>();
-            closes = new ArrayList<>();
-        }
+        private final ArrayList<Integer> opens = new ArrayList<>();
+        private final ArrayList<Integer> closes = new ArrayList<>();
 
         private void addOpen(int cell) {
             opens.add(cell);
@@ -33,69 +33,63 @@ public class Brainfuck {
         }
 
         private int getClose(int cell) {
-            int index = 0;
             for (int i = 0; i < opens.size(); i++) {
                 if (opens.get(i) == cell) {
-                    index = i;
-                    break;
+                    return closes.get(i);
                 }
             }
-            return closes.get(index);
+            return 0;
         }
 
         private int getOpen(int cell) {
-            int index = 0;
             for (int i = 0; i < closes.size(); i++) {
                 if (closes.get(i) == cell) {
-                    index = i;
-                    break;
+                    return opens.get(i);
                 }
             }
-            return opens.get(index);
+            return 0;
         }
     }
 
     public Brainfuck(String code) {
-        String bf = code.replaceAll("[^<>\\[\\].,+\\-]", "");
-        int loop = 0;
-        for (int i = 0; i < bf.length(); i++) {
-            char cmd = bf.charAt(i);
-            if (cmd == '[') {
-                loop++;
-                loops.addOpen(i);
-            } else if (cmd == ']') {
-                loop--;
-                loops.addClose(i);
+        this.code = code.replaceAll("[^<>\\[\\].,+\\-]", "");
+        int loopCount = 0;
+        for (int i = 0; i < this.code.length(); i++) {
+            switch (this.code.charAt(i)) {
+                case '[':
+                    loops.addOpen(i);
+                    loopCount++;
+                    break;
+                case ']':
+                    loops.addClose(i);
+                    loopCount--;
+                    break;
             }
-            String errorMsg = null;
-            if (loop < 0) errorMsg = "Unmatched ]";
-            else if (loop > 256) errorMsg = "Deep looping (Max 256)";
-            if (errorMsg != null) throw new IllegalArgumentException(errorMsg + " at %d" + i);
+            if (loopCount < 0) throw new IllegalArgumentException("Unmatched ]");
         }
-        if (loop != 0) throw new IllegalArgumentException("Unmatched [");
-        this.code = bf;
+        if (loopCount != 0) throw new IllegalArgumentException("Unmatched [");
     }
 
     private void exec(Scanner inputSource, int inputLength) throws NoSuchElementException {
-        inputSource.useDelimiter("\\n|");
+        inputSource.useDelimiter("\\n?");
         for (int i = 0; i < code.length(); i++) {
             char cmd = code.charAt(i);
             switch (cmd) {
                 case '>':
-                    if (pointer == 127)
-                        throw new IndexOutOfBoundsException("Pointer out of bounds (256) at " + i);
-                    pointer++;
+                    if (pointer == Integer.MAX_VALUE)
+                        throw new IndexOutOfBoundsException("Pointer out of bounds at " + i);
+                    if (++pointer == memory.size()) memory.add((byte) 0);
                     break;
                 case '<':
-                    if (pointer == -128)
-                        throw new IndexOutOfBoundsException("Pointer out of bounds (-1) at " + i);
+                    if (pointer == 0)
+                        throw new IndexOutOfBoundsException("Pointer out of bounds at " + i);
                     pointer--;
                     break;
                 case '+':
-                    memory[pointerLoc()]++;
+                    memory.set(pointer, (byte) (memory.get(pointer) + 1));
                     break;
                 case '-':
-                    memory[pointerLoc()]--;
+                    memory.set(pointer, (byte) (memory.get(pointer) - 1));
                     break;
                 case '[':
                     if (currentCell() == 0)
@@ -109,15 +103,13 @@ public class Brainfuck {
                     System.out.print(Character.toChars(currentCell())[0]);
                     break;
                 case ',':
-                    if (inputLength == -1)
-                        while (!inputSource.hasNext());
-                    else {
+                    if (inputLength != -1) {
                         if (inputLength == 0) throw new NoSuchElementException("Unfulfilled input at " + i);
                         inputLength--;
                     }
                     String input = inputSource.next();
-                    if (inputLength != -1) System.out.print(input);
-                    memory[pointerLoc()] = input.getBytes()[0];
+                    System.out.print(input);
+                    memory.set(pointer, input.getBytes()[0]);
                     break;
             }
         }
@@ -137,12 +129,8 @@ public class Brainfuck {
         exec(new Scanner(input), input.length());
     }
 
-    private int pointerLoc() {
-        return Byte.toUnsignedInt(pointer);
-    }
-
     private int currentCell() {
-        return Byte.toUnsignedInt(memory[pointerLoc()]);
+        return Byte.toUnsignedInt(memory.get(pointer));
     }
 
     public static void main(String[] args) {
@@ -160,7 +148,7 @@ public class Brainfuck {
             | NoSuchElementException
             err
         ) {
-            System.err.println(err);
+            err.printStackTrace();
             System.exit(-1);
         }
     }
