@@ -133,8 +133,17 @@ public class Brainfuck {
             System.out.println("Usage: java Brainfuck.java \"<brainfuck>\" \"[input]\"");
             System.exit(-1);
         }
-        Brainfuck bf = new Brainfuck(args[0]);
-        if (args.length < 2) bf.exec(System.in);
-        else bf.exec(args[1]);
+        try {
+            Brainfuck bf = new Brainfuck(args[0]);
+            if (args.length < 2) bf.exec(System.in);
+            else bf.exec(args[1]);
+        } catch (
+            IllegalArgumentException
+            | IndexOutOfBoundsException
+            | NoSuchElementException
+            err
+        ) {
+            System.err.println(err.getMessage());
+        }
     }
 }
