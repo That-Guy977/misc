@@ -120,11 +120,6 @@ public class Brainfuck {
         exec(new Scanner(inputSource), -1);
     }
 
-    public void exec() {
-        if (code.contains(",")) throw new IllegalArgumentException("Code contains input");
-        exec("");
-    }
-
     public void exec(String input) {
         exec(new Scanner(input), input.length());
     }

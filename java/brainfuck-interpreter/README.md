@@ -12,8 +12,7 @@
 Input is taken from STDIN (`System.in`) if no input is provided.
 
 #### API
-- `exec()` - No input provided. Throws `IllegalArgumentException` if code recieves input.
-- `exec(String input)` - Takes input from the provided `String`. Throws `NoSuchElementException` if input is not sufficient.
+- `exec(String input)` - Takes input from the provided `String`.
 - `exec(InputStream inputSource)` - Takes input from the provided `InputStream`.
 
 #### Limitations
