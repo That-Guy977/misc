@@ -70,7 +70,7 @@ public class Brainfuck {
         if (loopCount != 0) throw new IllegalArgumentException("Unmatched [");
     }
 
-    private void exec(Scanner inputSource, int inputLength) throws NoSuchElementException {
+    private void exec(Scanner inputSource, int inputLength) {
         inputSource.useDelimiter("\\n?");
         for (int i = 0; i < code.length(); i++) {
             char cmd = code.charAt(i);
@@ -116,16 +116,16 @@ public class Brainfuck {
         System.out.println();
     }
 
-    public void exec(InputStream inputSource) throws NoSuchElementException {
+    public void exec(InputStream inputSource) {
         exec(new Scanner(inputSource), -1);
     }
 
-    public void exec() throws NoSuchElementException {
+    public void exec() {
         if (code.contains(",")) throw new IllegalArgumentException("Code contains input");
         exec("");
     }
 
-    public void exec(String input) throws NoSuchElementException {
+    public void exec(String input) {
         exec(new Scanner(input), input.length());
     }
 
@@ -138,18 +138,8 @@ public class Brainfuck {
             System.out.println("Usage: java Brainfuck.java \"<brainfuck>\" \"[input]\"");
             System.exit(-1);
         }
-        try {
-            Brainfuck bf = new Brainfuck(args[0]);
-            if (args.length < 2) bf.exec(System.in);
-            else bf.exec(args[1]);
-        } catch (
-            IllegalArgumentException
-            | IndexOutOfBoundsException
-            | NoSuchElementException
-            err
-        ) {
-            err.printStackTrace();
-            System.exit(-1);
-        }
+        Brainfuck bf = new Brainfuck(args[0]);
+        if (args.length < 2) bf.exec(System.in);
+        else bf.exec(args[1]);
     }
 }
