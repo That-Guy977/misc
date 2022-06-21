@@ -2,8 +2,9 @@
 
 #### Projects
 
-- [Brainfuck interpreter](./brainfuck-interpreter/)
-- [Whitespace polyglot](./whitespace-polyglot/)
+- [Brainfuck interpreter](brainfuck-interpreter)
+- [Whitespace interpreter](whitespace-interpreter) - WIP
+- [Whitespace polyglot](whitespace-polyglot)
 
 #### CLI
 ###### Required: Java SDK

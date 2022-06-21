@@ -6,8 +6,8 @@
 
 #### Projects
 
-- [Dice Roll Guess game](./dice-roll-guess/)
-- [Java - Brainfuck interpreter](/java/brainfuck-interpreter/)
+- [Dice Roll Guess game](dice-roll-guess)
+- [Java - Brainfuck interpreter](/java/brainfuck-interpreter)
 
 #### Execution
 

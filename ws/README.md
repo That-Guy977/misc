@@ -6,7 +6,8 @@
 
 #### Projects
 
-- [Java polyglot](./whitespace-polyglot/)
+- [Java polyglot](whitespace-polyglot)
+- [Java - Whitespace interpreter](/java/whitespace-interpreter)
 
 #### Execution
 
