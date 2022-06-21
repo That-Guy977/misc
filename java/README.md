@@ -2,6 +2,7 @@
 
 #### Projects
 
+- [Counter](counter)
 - [Brainfuck interpreter](brainfuck-interpreter)
 - [Whitespace interpreter](whitespace-interpreter) - WIP
 - [Whitespace polyglot](whitespace-polyglot)
