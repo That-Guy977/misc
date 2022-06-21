@@ -9,12 +9,9 @@ public class Brainfuck {
     private final List<Byte> memory = new ArrayList<>();
     private int pointer = 0;
     private final Loops loops = new Loops();
+    { memory.add((byte) 0); }
 
-    {
-        memory.add((byte) 0);
-    }
-
-    private class Loops {
+    private static class Loops {
         private final ArrayList<Integer> opens = new ArrayList<>();
         private final ArrayList<Integer> closes = new ArrayList<>();
 
@@ -51,7 +48,7 @@ public class Brainfuck {
         }
     }
 
-    public Brainfuck(String code) {
+    public Brainfuck(String code) throws BrainfuckSyntaxErrorException {
         this.code = code.replaceAll("[^<>\\[\\].,+\\-]", "");
         int loopCount = 0;
         for (int i = 0; i < this.code.length(); i++) {
@@ -65,9 +62,9 @@ public class Brainfuck {
                     loopCount--;
                     break;
             }
-            if (loopCount < 0) throw new IllegalArgumentException("Unmatched ]");
+            if (loopCount < 0) throw new BrainfuckSyntaxErrorException("Unmatched ]");
         }
-        if (loopCount != 0) throw new IllegalArgumentException("Unmatched [");
+        if (loopCount != 0) throw new BrainfuckSyntaxErrorException("Unmatched [");
     }
 
     private void exec(Scanner inputSource, int inputLength) {
@@ -138,12 +135,18 @@ public class Brainfuck {
             if (args.length < 2) bf.exec(System.in);
             else bf.exec(args[1]);
         } catch (
-            IllegalArgumentException
+            BrainfuckSyntaxErrorException
             | IndexOutOfBoundsException
             | NoSuchElementException
             err
         ) {
-            System.err.println(err.getMessage());
+            System.err.println(err);
+        }
+    }
+    public static class BrainfuckSyntaxErrorException extends Exception {
+        public BrainfuckSyntaxErrorException(String message) {
+            super(message);
         }
     }
 }
+
