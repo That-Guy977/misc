@@ -143,6 +143,7 @@ public class Brainfuck {
             System.err.println(err);
         }
     }
+
     public static class BrainfuckSyntaxErrorException extends Exception {
         public BrainfuckSyntaxErrorException(String message) {
             super(message);
