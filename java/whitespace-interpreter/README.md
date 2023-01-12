@@ -17,7 +17,10 @@ Input is taken from STDIN (`System.in`) if no input is provided.
 
 #### Limitations
 
-<!-- add stack, heap, and file limits -->
+- Stack Memory is limited to `Integer.MAX_VALUE` as the stack is implemented using a `Stack`.
+- Heap Memory is limited to `Integer.MAX_VALUE` entries as the heap is implemented using a `HashMap<Integer>`.
+- Call Stack is limited to `Integer.MAX_VALUE` calls as the stack is implemented using a `Stack`.
+- Program length is limited to `Integer.MAX_VALUE` commands as commands are read and stored as a `String`.
 
 #### Sample code
 
