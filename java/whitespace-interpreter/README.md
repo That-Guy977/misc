@@ -17,11 +17,13 @@ Input is taken from STDIN (`System.in`) if no input is provided.
 
 #### Limitations
 
-- Stack Memory is limited to `Integer.MAX_VALUE` as the stack is implemented using a `Stack`.
-- Heap Memory is limited to `Integer.MAX_VALUE` entries as the heap is implemented using a `HashMap<Integer>`.
-- Call Stack is limited to `Integer.MAX_VALUE` calls as the stack is implemented using a `Stack`.
-- Program length is limited to `Integer.MAX_VALUE` commands as commands are read and stored as a `String`.
+- Stack Memory is limited to `Integer.MAX_VALUE` entries as the stack is implemented using an `ArrayDeque<Integer>`.
+- Heap Memory is limited to `Integer.MAX_VALUE` entries as the heap is implemented using a `HashMap<Integer, Integer>`.
+- Call Stack is limited to `Integer.MAX_VALUE` calls as the stack is implemented using an `ArrayDeque<Integer>`.
+- Label count is limited to `Integer.MAX_VALUE` labels as the label map is implemented using an `int[]`.
+- Program length is limited to `Integer.MAX_VALUE` characters as the program is read and stored as a `String`.
 
 #### Sample code
 
-<!-- add -->
+###### Hello World
+See [`ws/java-polyglot`](/ws/java-polyglot/).

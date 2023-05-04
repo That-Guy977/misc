@@ -6,7 +6,7 @@
 
 ##### [Java](java) [(wiki)](https://en.wikipedia.org/wiki/Java_(programming_language))
 - [Brainfuck interpreter](java/brainfuck-interpreter)
-- [Whitespace interpreter](java/whitespace-interpreter) - WIP
+- [Whitespace interpreter](java/whitespace-interpreter)
 - [Whitespace polyglot](java/whitespace-polyglot)
 
 ##### [Brainfuck](bf) [(wiki)](https://en.wikipedia.org/wiki/Brainfuck)
@@ -15,4 +15,4 @@
 
 ##### [Whitespace](ws) [(wiki)](https://en.wikipedia.org/wiki/Whitespace_(programming_language))
 - [Java polyglot](ws/java-polyglot)
-- [Java - Whitespace interpreter](java/whitespace-interpreter) - WIP
+- [Java - Whitespace interpreter](java/whitespace-interpreter)
