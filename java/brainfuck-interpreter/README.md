@@ -17,7 +17,7 @@ Input is taken from STDIN (`System.in`) if no input is provided.
 
 #### Limitations
 
-- Memory is limited to `Integer.MAX_VALUE` cells as memory is implemented using an `ArrayList`.
+- Memory is limited to `Integer.MAX_VALUE` cells as memory is implemented using an `ArrayList<String>`.
 - Program length is limited to `Integer.MAX_VALUE` commands as commands are read and stored as a `String`.
 
 #### Sample code
