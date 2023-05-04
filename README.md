@@ -1,4 +1,4 @@
-# misc-proj
+# misc
 
 ##### Random code projects seperated by language
 
