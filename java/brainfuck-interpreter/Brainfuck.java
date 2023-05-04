@@ -6,10 +6,7 @@ import java.io.InputStream;
 
 public class Brainfuck {
     private final String code;
-    private final List<Byte> memory = new ArrayList<>();
-    private int pointer = 0;
     private final Loops loops = new Loops();
-    { memory.add((byte) 0); }
 
     private static class Loops {
         private final ArrayList<Integer> opens = new ArrayList<>();
@@ -68,6 +65,9 @@ public class Brainfuck {
     }
 
     private void exec(Scanner inputSource, int inputLength) {
+        List<Byte> memory = new ArrayList<>();
+        memory.add((byte) 0);
+        int pointer = 0;
         inputSource.useDelimiter("\\n?");
         for (int i = 0; i < code.length(); i++) {
             char cmd = code.charAt(i);
@@ -89,15 +89,15 @@ public class Brainfuck {
                     memory.set(pointer, (byte) (memory.get(pointer) - 1));
                     break;
                 case '[':
-                    if (currentCell() == 0)
+                    if (memory.get(pointer) == 0)
                         i = loops.getClose(i);
                     break;
                 case ']':
-                    if (currentCell() != 0)
+                    if (memory.get(pointer) != 0)
                         i = loops.getOpen(i);
                     break;
                 case '.':
-                    System.out.print(Character.toChars(currentCell())[0]);
+                    System.out.print(Character.toChars(memory.get(pointer)));
                     break;
                 case ',':
                     if (inputLength != -1) {
@@ -119,10 +119,6 @@ public class Brainfuck {
 
     public void exec(String input) {
         exec(new Scanner(input), input.length());
-    }
-
-    private int currentCell() {
-        return Byte.toUnsignedInt(memory.get(pointer));
     }
 
     public static void main(String[] args) {
