@@ -14,7 +14,7 @@ class HelloWorld	{
   MESSAGE.push( 'r'	);		  	 
   MESSAGE.push( 'o'	);	 				
   MESSAGE.push( 'w'	);		 			
-  MESSAGE.push( ' '	);    
+  MESSAGE.push( ' '	);     
   MESSAGE.push( ',' );	 		  
   MESSAGE.push( 'o'	);	 				
   MESSAGE.push( 'l'	);	 		  
