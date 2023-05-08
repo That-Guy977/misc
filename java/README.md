@@ -1,16 +1,17 @@
 ## Java
 
-#### Projects
+Java <sub><sup>[🌐](https://en.wikipedia.org/wiki/Java_(programming_language) 'Wikipedia')</sup></sub> is a C-family, general-purpose, high-level, object-oriented language.
 
-- [Counter](counter)
-- [Brainfuck interpreter](brainfuck-interpreter)
-- [Whitespace interpreter](whitespace-interpreter) - WIP
-- [Whitespace polyglot](whitespace-polyglot)
+### Projects
 
-#### CLI
-###### Required: Java SDK
+- [Counter](counter/)
+- [Brainfuck interpreter](brainfuck-interpreter/)
+- [Whitespace interpreter](whitespace-interpreter/)
+- [Whitespace polyglot](whitespace-polyglot/)
 
-- `jshell` - Java REPL
-- `java File.java` - Run `.java` file (JIT)
-- `java File` - Run `.class` file (AOT)
-- `javac File.java` - Compile `.java` file to `.class`
+### Execution
+
+- CLI
+  - `java File.java` - Compile and execute `.java` file
+  - `jshell` - Java REPL
+- [Online Compiler](https://www.jdoodle.com/online-java-compiler/)

@@ -1,14 +1,14 @@
 ## Whitespace
 
-#### About
+Whitespace <sub><sup>[🌐](https://en.wikipedia.org/wiki/Whitespace_(programming_language) 'Wikipedia') [🍋](https://esolangs.org/wiki/Whitespace 'Esolang')</sup></sub> is an esoteric programming language with commands comprised purely of whitespace characters.
 
-[Whitespace](https://en.wikipedia.org/wiki/Whitespace_(programming_language)) is an esoteric programming language with commands comprised purely of whitespace characters.
+### Projects
 
-#### Projects
+- [Java polyglot](whitespace-polyglot/)
+- [Java - Whitespace interpreter](/java/whitespace-interpreter/)
 
-- [Java polyglot](whitespace-polyglot)
-- [Java - Whitespace interpreter](/java/whitespace-interpreter)
+### Execution
 
-#### Execution
-
-Whitespace can be run online [here](https://www.jdoodle.com/execute-whitespace-online/), or for step-by-step execution, [here](https://vii5ard.github.io/whitespace/).
+- [Interpreter](/java/whitespace-interpreter/)
+- [Online Interpreter](https://www.jdoodle.com/execute-whitespace-online/)
+- [Online Visualizer](https://vii5ard.github.io/whitespace/)

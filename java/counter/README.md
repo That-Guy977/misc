@@ -1,14 +1,15 @@
-### Java - Counter
+## Java - Counter
 
-#### About
+This program implements a numeric checklist via the console.
 
-This class is a state tracker of indexes, for checking completion of tasks.
+### CLI
 
-###### Arguments
-None
+`java Counter.java`
 
-###### Input
-Input is taken from STDIN (`System.in`).
+### Input
 
-#### API
+Input is taken from STDIN.
+
+### API
+
 None

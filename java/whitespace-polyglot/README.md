@@ -1,9 +1,11 @@
-### Java - Whitespace polyglot
+## Java - Whitespace Polyglot
 
-#### About
+This program is a polyglot <sub><sup>[🌐](https://en.wikipedia.org/wiki/Polyglot_(computing))</sup></sub> of Java and Whitespace <sub><sup>[🌐](https://en.wikipedia.org/wiki/Whitespace_(programming_language) 'Wikipedia') [🍋](https://esolangs.org/wiki/Whitespace 'Esolang')</sup></sub>, with both outputting `Hello, world!`. See [here](/ws#execution) for running the Whitespace version.
 
-[Whitespace](https://en.wikipedia.org/wiki/Whitespace_(programming_language)) is an esoteric programming language with commands comprised purely of whitespace characters. This class is a [polyglot](https://en.wikipedia.org/wiki/Polyglot_(computing)) of Java and Whitespace, with both outputting `Hello, world!`. See [here](/ws/README.md) for running the whitespace version.
+### CLI
 
-#### CLI
-###### Arguments
-None
+`java HelloWorld.java`
+
+### See also
+
+- [Whitespace page](/ws/java-polyglot/)

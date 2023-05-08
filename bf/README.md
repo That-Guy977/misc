@@ -1,14 +1,14 @@
 ## Brainfuck
 
-#### About
+Brainfuck <sub><sup>[🌐](https://en.wikipedia.org/wiki/Brainfuck 'Wikipedia') [🍋](https://esolangs.org/wiki/Brainfuck 'Esolang')</sup></sub> is an esoteric programming language comprised of 8 single-character commands.
 
-[Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) is an esoteric programming language comprised of 8 single-character commands.
+### Projects
 
-#### Projects
+- [Dice Roll Guess game](dice-roll-guess/)
+- [Java - Brainfuck interpreter](/java/brainfuck-interpreter/)
 
-- [Dice Roll Guess game](dice-roll-guess)
-- [Java - Brainfuck interpreter](/java/brainfuck-interpreter)
+### Execution
 
-#### Execution
-
-Brainfuck can be run online [here](https://www.jdoodle.com/execute-brainfuck-online/), or for step-by-step execution, [here](https://brainfuck-visualizer.herokuapp.com/).
+- [Interpreter](/java/brainfuck-interpreter/)
+- [Online Interpreter](https://www.jdoodle.com/execute-brainfuck-online/)
+- [Online Visualizer](https://brainfuck-visualizer.herokuapp.com/)
