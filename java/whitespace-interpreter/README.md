@@ -5,6 +5,8 @@ This class implements a complete [Whitespace](/ws/) <sub><sup>[🌐](https://en.
 ### CLI
 
 `java Whitespace.java "<file.ws>" "[input]"`
+`java Whitespace.java -s "<whitespace>" "[input]"` (Raw Whitespace)
+`java Whitespace.java -t "<whitespace>" "[input]"` (Displayed Whitespace)
 
 ### Input
 
@@ -15,6 +17,8 @@ Input is taken from STDIN if no input is provided.
 - `Whitespace(String)` - Parses Whitespace code.
 - `exec(String)` - Executes with the given `String` input.
 - `exec(InputStream)` - Executes with the given `InputStream` input.
+- `displayWS(String)` - Displays raw whitespace content.
+- `transformWS(String)` - Transforms content to raw whitespace.
 
 ### Limitations
 
@@ -29,4 +33,7 @@ Input is taken from STDIN if no input is provided.
 ### Sample code
 
 #### Hello World
-[`ws/java-polyglot`](/ws/java-polyglot/)
+[`ws/java-polyglot`](/ws/java-polyglot/) (Minified, Displayed)
+```
+LSTLLSTLLSTSSSSSSLLSTSSSSSSLSSSSSSSSSSLSSSSSSTSTSLSSSSTSSSSTLSSSTTSSTSSLSSSTTSTTSSLSSSTTTSSTSLSSSTTSTTTTLSSSTTTSTTTLSSSSTSSSSSLSSSSTSTTSSLSSSTTSTTTTLSSSTTSTTSSLSSSTTSTTSSLSSSTTSSTSTLSSSTSSTSSSLLSTLLSTSSSSSSLLSTSSTLLSTLLLLLSSSSTLTLSSSLSLTSLLSLSSTLLSSSSSSSSLLSSLLTLLLL
+```

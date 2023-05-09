@@ -183,7 +183,7 @@ public class Whitespace {
                     }
                     if (instr == Instr.LABEL) {
                         if (labelMap.get(cmd.param) != -1)
-                            throw new WhitespaceSyntaxErrorException(String.format("Duplicate label '%s'", showWS(paramBuffer)));
+                            throw new WhitespaceSyntaxErrorException(String.format("Duplicate label '%s'", displayWS(paramBuffer)));
                         labelMap.set(cmd.param, cmds.size());
                     }
                 }
@@ -199,7 +199,7 @@ public class Whitespace {
             throw new WhitespaceSyntaxErrorException("Unexpected EOF");
         for (int i = 0; i < labels.size(); i++) {
             if (labelMap.get(i) == -1)
-                throw new WhitespaceSyntaxErrorException(String.format("Undefined label '%s'", showWS(labels.get(i))));
+                throw new WhitespaceSyntaxErrorException(String.format("Undefined label '%s'", displayWS(labels.get(i))));
         }
         this.cmds = cmds.toArray(Command[]::new);
         this.labels = labelMap.stream().mapToInt(Integer::intValue).toArray();
@@ -349,7 +349,7 @@ public class Whitespace {
         exec(new Scanner(input));
     }
 
-    public static String showWS(String ws) {
+    public static String displayWS(String ws) {
         return ws.chars().mapToObj((ch) -> switch (ch) {
             case ' ' -> "S";
             case '\t' -> "T";
@@ -358,18 +358,32 @@ public class Whitespace {
         }).collect(Collectors.joining());
     }
 
+    public static String transformWS(String ws) {
+        return ws.chars().mapToObj((ch) -> switch (ch) {
+            case 'S' -> " ";
+            case 'T' -> "\t";
+            case 'L' -> "\n";
+            default -> "";
+        }).collect(Collectors.joining());
+    }
+
     public static void main(String[] args) {
-        if (args.length == 0 || args.length > 2) {
+        if (!validateArgs(args)) {
             System.out.println("Usage: java Whitespace.java \"<file.ws>\" \"[input]\"");
+            System.out.println("       java Whitespace.java -s \"<whitespace>\" \"[input]\"");
+            System.out.println("         Raw Whitespace source code");
+            System.out.println("       java Whitespace.java -t \"<whitespace>\" \"[input]\"");
+            System.out.println("         Displayed Whitespace source code");
             System.exit(-1);
         }
         try {
-            String code = Files.readString(Path.of(args[0]));
+            String code = getSource(args);
             Whitespace ws = new Whitespace(code);
-            if (args.length < 2) {
+            String input = getInput(args);
+            if (input == null) {
                 ws.exec(System.in);
             } else {
-                ws.exec(args[1]);
+                ws.exec(input);
             }
             return;
         } catch (WhitespaceSyntaxErrorException | WhitespaceRuntimeException err) {
@@ -382,6 +396,33 @@ public class Whitespace {
             System.err.printf("Could not read file '%s'.\n", args[0]);
         }
         System.exit(-1);
+    }
+
+    private static boolean validateArgs(String[] args) {
+        if (args.length == 0) {
+            return false;
+        }
+        if (args[0].matches("-[st]")) {
+            return args.length >= 2 && args.length <= 3;
+        } else {
+            return args.length >= 1 && args.length <= 2;
+        }
+    }
+
+    private static String getSource(String[] args) throws NoSuchFileException, IOException {
+        return switch (args[0]) {
+            case "-s" -> args[1];
+            case "-t" -> transformWS(args[1]);
+            default -> Files.readString(Path.of(args[0]));
+        };
+    }
+
+    private static String getInput(String[] args) {
+        if (args[0].matches("-[st]")) {
+            return args.length == 3 ? args[2] : null;
+        } else {
+            return args.length == 2 ? args[1] : null;
+        }
     }
 
     public static class WhitespaceSyntaxErrorException extends Exception {
