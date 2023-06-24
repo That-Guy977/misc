@@ -32,7 +32,7 @@ Operations:
 - `String info()` - Gives state breakdown
 - `void reset()` - Resets counter
 
-### Limitation
+### Limitations
 
 - Count: `Integer.MAX_VALUE`
 - Cap: `Integer.MAX_VALUE`
