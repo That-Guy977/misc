@@ -8,4 +8,4 @@ This program is a polyglot <sub><sup>[🌐](https://en.wikipedia.org/wiki/Polygl
 
 ### See also
 
-- [Whitespace page](/ws/java-polyglot/)
+- [Whitespace - Java Polyglot](/ws/java-polyglot/)

@@ -4,4 +4,4 @@ This program is a polyglot <sub><sup>[🌐](https://en.wikipedia.org/wiki/Polygl
 
 ### See also
 
-- [Java page](/java/whitespace-polyglot/)
+- [Java - Whitespace Polyglot](/java/whitespace-polyglot/)
