@@ -4,5 +4,5 @@ This collection of shell scripts provides utility for updating various tools.
 
 ### CLI
 
-`nvm-bump` - Installs latest LTS lines of `node` via `nvm`
+`nvm-bump` - Updates installed major versions and latest LTS of `node` via `nvm`
 `brew-bump` - Upgrades `brew` and updates installed packages

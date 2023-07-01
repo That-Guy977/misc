@@ -1,23 +1,14 @@
 #!/bin/bash
 if ! [ -d "$HOME/.nvm" ]; then echo "NVM at path '$HOME/.nvm' not found"; exit 1; fi
 . $HOME/.nvm/nvm.sh
-versions="$(nvm ls --no-colors)"
-lts=$(echo "$versions" | sed -nE '/^lts\/[[:alpha:]]+/{
-  s/^lts\/[[:alpha:]]+ -> v([[:digit:].]+) (\*|\(-> N\/A\))$/\1/
-  p
-}')
-inst=$(echo "$versions" | sed -nE '/^(->)? +/{
-  s/^(->)? +v([[:digit:].]+) \*$/\2/
-  p
-}')
-for v in $lts; do
-  if [[ ! "$inst" =~ "$v" ]]; then
-    nvm install "$v" --latest-npm
-  fi
+versions="$(nvm ls --no-colors --no-alias)"
+major=$(echo "$versions" | sed -E 's/^(->)? +v([[:digit:]]+)\.[[:digit:]]+\.[[:digit:]]+ \*$/\2/' | uniq)
+for v in $major; do
+  nvm install "$v" --latest-npm
+  extra=$(nvm ls "$v" --no-colors | sed -E -e '$d' -e 's/^ *v([[:digit:].]*) \*$/\1/')
+  for e in $extra; do
+    nvm uninstall "$e"
+  done
 done
-for v in $inst; do
-  if [[ ! "$lts" =~ "$v" ]]; then
-    nvm uninstall "$v"
-  fi
-done
-nvm use default
+nvm install "lts/*"
+nvm use node
