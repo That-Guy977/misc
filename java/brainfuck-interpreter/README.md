@@ -6,7 +6,7 @@ This class implements a complete [Brainfuck](/bf/) <sub><sup>[🌐](https://en.w
 
 `java Brainfuck.java "<brainfuck>" "[input]"`
 
-### Input
+#### Input
 
 Input is taken from STDIN if no input is provided.
 

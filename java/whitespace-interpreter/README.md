@@ -8,7 +8,7 @@ This class implements a complete [Whitespace](/ws/) <sub><sup>[🌐](https://en.
 `java Whitespace.java -s "<whitespace>" "[input]"` (Raw Whitespace)
 `java Whitespace.java -t "<whitespace>" "[input]"` (Displayed Whitespace)
 
-### Input
+#### Input
 
 Input is taken from STDIN if no input is provided.
 
