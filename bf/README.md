@@ -4,8 +4,8 @@ Brainfuck <sub><sup>[🌐](https://en.wikipedia.org/wiki/Brainfuck 'Wikipedia') 
 
 ### Projects
 
-- [Dice Roll Guess game](dice-roll-guess/)
-- [Java - Brainfuck interpreter](/java/brainfuck-interpreter/)
+- [Dice Roll Guess Game](dice-roll-guess/)
+- [Java - Brainfuck Interpreter](/java/brainfuck-interpreter/)
 
 ### Execution
 

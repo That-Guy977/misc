@@ -5,9 +5,9 @@ Java <sub><sup>[🌐](https://en.wikipedia.org/wiki/Java_(programming_language) 
 ### Projects
 
 - [Counter](counter/)
-- [Brainfuck interpreter](brainfuck-interpreter/)
-- [Whitespace interpreter](whitespace-interpreter/)
-- [Whitespace polyglot](whitespace-polyglot/)
+- [Brainfuck Interpreter](brainfuck-interpreter/)
+- [Whitespace Interpreter](whitespace-interpreter/)
+- [Whitespace Polyglot](whitespace-polyglot/)
 
 ### Execution
 

@@ -4,8 +4,8 @@ Whitespace <sub><sup>[🌐](https://en.wikipedia.org/wiki/Whitespace_(programmin
 
 ### Projects
 
-- [Java polyglot](whitespace-polyglot/)
-- [Java - Whitespace interpreter](/java/whitespace-interpreter/)
+- [Java Polyglot](whitespace-polyglot/)
+- [Java - Whitespace Interpreter](/java/whitespace-interpreter/)
 
 ### Execution
 
