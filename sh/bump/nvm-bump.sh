@@ -1,6 +1,6 @@
 #!/bin/bash
 if ! [ -d "$HOME/.nvm" ]; then echo "NVM at path '$HOME/.nvm' not found"; exit 1; fi
-. $HOME/.nvm/nvm.sh
+. "$HOME/.nvm/nvm.sh"
 versions="$(nvm ls --no-colors --no-alias)"
 major=$(echo "$versions" | sed -E 's/^(->)? +v([[:digit:]]+)\.[[:digit:]]+\.[[:digit:]]+ \*$/\2/' | uniq)
 for v in $major; do
