@@ -5,6 +5,7 @@ Bash <sub><sup>[🌐](https://en.wikipedia.org/wiki/Bash_(Unix_shell) 'Wikipedia
 ### Projects
 
 - [Bump](bump/)
+- [Keepalive](keepalive/)
 
 ### Execution
 
