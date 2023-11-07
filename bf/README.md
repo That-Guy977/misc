@@ -11,4 +11,4 @@ Brainfuck <sub><sup>[🌐](https://en.wikipedia.org/wiki/Brainfuck 'Wikipedia') 
 
 - [Interpreter](/java/brainfuck-interpreter/)
 - [Online Interpreter](https://www.jdoodle.com/execute-brainfuck-online/)
-- [Online Visualizer](https://ashupk.github.io/Brainfuck/brainfuck-visualizer-master/index.html)
+- [Online Visualizer](https://esolangpark.vercel.app/ide/brainfuck)
